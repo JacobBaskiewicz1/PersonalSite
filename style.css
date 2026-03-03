@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'PixelPurl';
-  src: url('assets/Font/PixelPurl.ttf') format('truetype');
+  src: url('Assets/Font/PixelPurl.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Pictochat';
-  src: url('assets/Font/pictochat.ttf') format('truetype');
+  src: url('Assets/Font/pictochat.ttf') format('truetype');
 }
 
 @keyframes dither {

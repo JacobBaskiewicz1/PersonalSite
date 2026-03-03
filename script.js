@@ -1,13 +1,13 @@
-var blip1 = new Audio('assets/sound/blip/blipSelect.wav');
-var blip2 = new Audio('assets/sound/blip/blipSelect(1).wav');
-var blip3 = new Audio('assets/sound/blip/blipSelect(2).wav');
-var blip4 = new Audio('assets/sound/blip/blipSelect(3).wav');
-var blip5 = new Audio('assets/sound/blip/blipSelect(4).wav');
-var blip6 = new Audio('assets/sound/blip/blipSelect(5).wav');
-var blip7 = new Audio('assets/sound/blip/blipSelect(6).wav');
+var blip1 = new Audio('Assets/sound/blip/blipSelect.wav');
+var blip2 = new Audio('Assets/sound/blip/blipSelect(1).wav');
+var blip3 = new Audio('Assets/sound/blip/blipSelect(2).wav');
+var blip4 = new Audio('Assets/sound/blip/blipSelect(3).wav');
+var blip5 = new Audio('Assets/sound/blip/blipSelect(4).wav');
+var blip6 = new Audio('Assets/sound/blip/blipSelect(5).wav');
+var blip7 = new Audio('Assets/sound/blip/blipSelect(6).wav');
 const blips = [blip1, blip2, blip3, blip4, blip5, blip6, blip7];
 
-var bloop = new Audio("assets/sound/other/bloop.wav");
+var bloop = new Audio("Assets/sound/other/bloop.wav");
 bloop.volume = 0.4;
 
 var hasBeenActivated = false;
