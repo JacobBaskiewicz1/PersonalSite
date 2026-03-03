@@ -1,0 +1,454 @@
+@font-face {
+  font-family: 'PixelPurl';
+  src: url('assets/Font/PixelPurl.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pictochat';
+  src: url('assets/Font/pictochat.ttf') format('truetype');
+}
+
+@keyframes dither {
+  0% {
+    text-shadow: 0 0 0px rgba(255,255,255,0);
+  }
+  50% {
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5), -1px -1px 0 rgba(255,255,255,0.5), 1px -1px 0 rgba(255,255,255,0.5), -1px 1px 0 rgba(255,255,255,0.5);
+  }
+  100% {
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.3), -2px -2px 0 rgba(255,255,255,0.3), 2px -2px 0 rgba(255,255,255,0.3), -2px 2px 0 rgba(255,255,255,0.3);
+  }
+}
+
+@keyframes rotate{
+  0%{
+      transform: rotate(0deg);
+  }
+  50%{
+      transform: rotate(180deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes rainbow-gradient {
+  0% {
+    background-color: red;
+  }
+  16.67% {
+    background-color: orange;
+  }
+  33.33% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: green;
+  }
+  66.67% {
+    background-color: blue;
+  }
+  83.33% {
+    background-color: purple;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+@keyframes rainbow-border {
+  0% {
+    border-bottom-color: red;
+  }
+  16.67% {
+    border-bottom-color: orange;
+  }
+  33.33% {
+    border-bottom-color: yellow;
+  }
+  50% {
+    border-bottom-color: green;
+  }
+  66.67% {
+    border-bottom-color: blue;
+  }
+  83.33% {
+    border-bottom-color: purple;
+  }
+  100% {
+    border-bottom-color: red;
+  }
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 120vh;
+  font-size: 24px;
+  margin: 0;
+  padding: var(--margin);
+  color: white;
+  font-family: 'Pictochat', sans-serif;
+  line-height: 1.2;
+  background-color: rgb(19, 19, 24);
+}
+
+.button {
+  font-family: 'Pictochat', sans-serif;
+  font-size: 20px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 5px 20px;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: white;
+  color: black;
+  border-color: black;
+}
+
+.img-large {
+    width: 400px;
+    height: auto;
+}
+
+.img-medium {
+    width: 250px;
+    height: auto;
+}
+
+.img-small {
+    width: 150px;
+    height: auto;
+}
+
+.img-square {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.img-xsmall {
+    width: 75px;
+    height: auto;
+}
+
+.project-img {
+  width: 560px;
+  height: auto;
+}
+
+.image-carousel {
+  width: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carousel-image {
+  width: 560px;
+  height: auto;
+  border: 2px solid white;
+}
+
+.unauthorized-carousel-image {
+  width: 560px;
+  height: 315px;
+  object-fit: cover;
+}
+
+.carousel-arrow {
+  font-family: 'Pictochat', sans-serif;
+  font-size: 30px;
+  width: 50px;
+  height: 35px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.carousel-arrow:hover {
+  background: white;
+  color: black;
+}
+
+.blobbert-overlay {
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+}
+
+.speech-img {
+  position: absolute;
+  left: -130px;
+  bottom: 50px;
+  width: 150px;
+  height: auto;
+  z-index: 6;
+}
+
+.speech-text {
+    position: absolute;
+    left: -120px;
+    bottom: 113px;
+    width: 120px;
+    margin: 0;
+    padding: 0 6px;
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    line-height: 1.1;
+    z-index: 8;
+    pointer-events: none;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+  font-size: 34px;
+  background-color: #000000;
+  border-bottom: 3px solid red;
+  animation: rainbow-border 4s linear infinite;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+}
+
+.topbar img {
+  max-height: 30px;
+  width: auto;
+  display: block;
+  margin: 5px 0px;
+}
+
+.text {
+  flex: 1;
+  min-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 15px;
+}
+
+.topbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.topbar a:visited {
+  color: white;
+}
+
+.topbar a:hover {
+  color: rgb(0, 0, 0);
+  animation: dither 0.7s ease-in-out infinite;
+}
+
+.navbar {
+  display: flex;
+  gap: 10px;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hidden.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.blobbert-overlay.spin {
+  animation: rotate 2s linear;
+  transform-origin: center center;
+}
+
+.resume-modal p {
+  margin: 0;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 40vw;
+  width: 100%;
+  padding: 5px 30px 30px 30px;
+  margin: 40px 0;
+  background-color: rgb(30, 30, 35);
+  border: 3px solid white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.about-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.about h1,
+.about p {
+  margin: 5px;
+}
+
+.about-skills-dense h1,
+.about-skills-dense h2,
+.about-skills-dense h3,
+.about-skills-dense h4,
+.about-skills-dense h5,
+.about-skills-dense h6,
+.about-skills-dense p {
+  margin: 0px 0;
+  line-height: 1;
+}
+
+.about-skills-dense table {
+  width: 70%;
+  margin: 0 auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.about-skills-dense td,
+.about-skills-dense th {
+  width: 50%;
+  text-align: center;
+}
+
+.projects-nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.project-tab {
+  margin: 0;
+  padding: 6px 12px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.project-tab:hover,
+.project-tab:focus {
+  border-color: white;
+  outline: none;
+}
+
+.project-tab.active {
+  background-color: white;
+  color: black;
+}
+
+.projects-sections {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.project-section {
+  display: none;
+  width: 100%;
+  padding: 20px 30px;
+  background-color: rgb(30, 30, 35);
+  border: 3px solid white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 20px;
+}
+
+.project-section > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-section h2,
+.project-section p {
+  margin: 4px 0;
+  line-height: 1.1;
+}
+
+.projects-sections td {
+  padding: 20px;
+}
+
+.project-section table {
+  width: 80%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.project-section td {
+  vertical-align: top;
+}
+
+.project-section td:first-child {
+  width: 40%;
+}
+
+.project-section td:last-child {
+  width: 40%;
+}
+
+.project-section.active {
+  display: block;
+}
+
+body a {
+  color: rgb(223, 173, 230);
+  text-decoration: none;
+}
+
+body a:hover {
+  color: white;
+}
+
+hr {
+  width: 70%;
+  height: 4px;
+  border: none;
+  margin: 24px 0;
+  background-color: red;
+  animation: rainbow-gradient 4s linear infinite;
+}
+
