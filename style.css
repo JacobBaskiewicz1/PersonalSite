@@ -452,3 +452,84 @@ hr {
   animation: rainbow-gradient 4s linear infinite;
 }
 
+@media (max-width: 900px) {
+  body {
+    min-height: 100vh;
+    font-size: 20px;
+    line-height: 1.4;
+    padding: 0 10px 24px;
+  }
+
+  .topbar {
+    height: auto;
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 28px;
+  }
+
+  .text {
+    min-width: 0;
+    width: 100%;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .navbar {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .about {
+    max-width: 92vw;
+    padding: 12px 14px 18px;
+    margin: 20px 0;
+  }
+
+  .projects-sections {
+    width: 92vw;
+    gap: 14px;
+  }
+
+  .project-section {
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  .project-section table {
+    width: 100%;
+    table-layout: auto;
+  }
+
+  .project-section tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-section td {
+    width: 100% !important;
+    padding: 8px 0;
+  }
+
+  .project-img,
+  .carousel-image,
+  .image-carousel,
+  .project-section iframe {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-section iframe,
+  .unauthorized-carousel-image {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  hr {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
