@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jacob Baskiewicz</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chess.js@0.10.3/chess.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
     <script src="script.js"></script>
 </head>
 
@@ -14,27 +18,31 @@
     <div class="topbar">
         <div class="text"><h2><a href="index.html">Jacob Baskiewicz</a></h2></div>
         <div class="navbar">
-            <img src="Assets/resume.png" alt="Resume" id="resume" />
+            <a href="Assets/JacobBaskiewicz-Resume-GD.docx.pdf" download><img src="Assets/resume.png" alt="Resume" id="resume" /></a>
             <a href="https://www.linkedin.com/in/jacob-baskiewicz-3b2791313/" target="_blank"><img src="Assets/linkedin.png" alt="LinkedIn" id="linkedin" /></a>
             <a href="https://github.com/JacobBaskiewicz1" target="_blank"><img src="Assets/github.png" alt="Github" id="Github" /></a>
             <a href="https://jacobbaskiewicz1.itch.io/" target="_blank"><img src="Assets/itchio.png" alt="Itchio" id="Itchio" /></a>
 
             <a href="projects.html">Projects</a>
             <a href="skills.html">Skills</a>
+            <a href="gallery.html">Gallery</a>
             <a href="contact.html">Contact</a>
         </div>
     </div>
 
     <!-- about -->
-    <div class="about">
+    <div class="about index-intro">
         <h1>Hello World!</h1>
-        <p>My name is Jacob Baskiewicz, heres my website where I post all my projects, contact details, up-to-date info, and fun tidbits! 
-            I'm a passionate and dedicated game designer and programmer. I'm always eager to learn new skills and take on creative challenges.
-        </p>
-        <p>I've previously worked in retail for 3 years, led the level design development and gameplay for Virtual Reality Rhythm Game
-            <a href="https://store.steampowered.com/app/1884680/SolarBlack/" target="_blank">Solar Black</a>. 
+        <p>Hi! I'm Jacob, and welcome to my website! Here I showcase all my projects, contact details, up-to-date info, and fun tidbits!</p>
+        <p>I'm a passionate and dedicated game designer, programmer, and technical artist always eager to learn new skills and make something awesome.</p>
+        <p>I Enjoy playing video games, tabletop board games, music, technical art, language learning, hiking and working out. And I'm also a huge animal lover!</p>
+        <hr style="width: 60%; margin: 15px auto;" />
+        <p>I've previously led the level design development and gameplay for Virtual Reality Rhythm Game
+            <a href="https://store.steampowered.com/app/1884680/SolarBlack/" target="_blank">Solar Black</a>. Been a project and programming lead 
+            for a number of projects. 
             I've also been a major contributor to the <a href="https://store.steampowered.com/app/620980/Beat_Saber/" target="_blank">
-            Beat Saber</a> custom levels, modding, and ranking community for the past 6 years! (<a href="projects.html#beat-saber">Find more about that here</a>)
+            Beat Saber</a> custom levels, modding, and ranking community for the past 6 years! 
+            (<a href="projects.html#beat-saber">Find more about that here</a>).
         </p>
         <p>
             Please take a look at my <a href="projects.html">projects</a> page to read about all that I've done!
@@ -42,20 +50,43 @@
     </div>
     <hr />
 
-    <!-- blobbert -->
-    <div class="center">
+    <!-- blobbert chess -->
+    <div class="center blobbert-section">
         <h3>Invite Blobbert for a game of chess?</h3>
-        <div style="position: relative; display: inline-block;">
-            <img src="Assets/speechbubble.png" alt="Speech Bubble" class="speech-img hidden" id="speechImg" />
-            <p class="speech-text hidden" id="speechText">I don't know how to play chess! Check this out though</p>
-            <img src="Assets/chessboard.png" alt = "Chessboard" class="img-medium"/>
-            <img src="Assets/blobbert.gif" alt="Blobbert" class="img-xsmall blobbert-overlay" id="blobbert" />
+        
+        <!-- Pre-game: static image + button -->
+        <div id="chessPreGame">
+            <div style="position: relative; display: inline-block;">
+                <img src="Assets/speechbubble.png" alt="Speech Bubble" class="speech-img hidden" id="speechImg" />
+                <p class="speech-text hidden" id="speechText"></p>
+                <img src="Assets/chessboard.png" alt="Chessboard" class="img-medium" id="staticChessboard" />
+                <img src="Assets/blobbert.gif" alt="Blobbert" class="img-xsmall blobbert-overlay" id="blobbert" />
+            </div>
+            <div style="margin-top: 15px;">
+                <button class="button" id="blobbertChess">Yes</button>
+            </div>
         </div>
-        <div>
-            <button class="button" id="blobbertChess">Yes</button>
+
+        <!-- Active game: real chess board -->
+        <div id="chessActiveGame" class="chess-active-game" style="display: none;">
+            <div class="chess-game-wrapper">
+                <div class="chess-blobbert-side">
+                    <img src="Assets/blobbert.gif" alt="Blobbert" class="img-xsmall" />
+                    <span class="chess-player-label">Blobbert <span class="chess-piece-color">(Black)</span></span>
+                </div>
+                <div id="chessBoard" class="chess-board-container"></div>
+                <div class="chess-you-side">
+                    <span class="chess-player-label">You <span class="chess-piece-color">(White)</span></span>
+                </div>
+                <p id="chessStatus" class="chess-status">Your move!</p>
+                <div class="chess-controls">
+                    <button class="button" id="chessNewGame">New Game</button>
+                    <button class="button" id="chessUndoMove">Undo</button>
+                </div>
+            </div>
         </div>
     </div>
 
 </body>
 
-</html> 
+</html>
